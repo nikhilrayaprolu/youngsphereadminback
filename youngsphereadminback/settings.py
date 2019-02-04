@@ -128,3 +128,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LMS_URL = 'http://localhost:18000'
+LMS_CLIENT_ID = '3186b101a338f7a985fe'
+LMS_CLIENT_SECRET = 'c56bf390a42c0f163081a70690a7fba8b24e15d6'
+LMS_TOKEN = 'fe8df44d58eb9e5a757fd92e10c0e0de05c8ea67'
+
+
