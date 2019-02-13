@@ -25,7 +25,7 @@ SECRET_KEY = 'k8ypfj^6x99ea%4s1^-#rp52o+_)pg#gzm90#!20ub1hd$ld3o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', 'http://adminback.youngsphere.com']
 
 
 # Application definition
@@ -129,7 +129,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LMS_URL = 'http://localhost:18000'
+LMS_URL = 'http://youngspere.com'
 LMS_CLIENT_ID = '3186b101a338f7a985fe'
 LMS_CLIENT_SECRET = 'c56bf390a42c0f163081a70690a7fba8b24e15d6'
 LMS_TOKEN = 'fe8df44d58eb9e5a757fd92e10c0e0de05c8ea67'
