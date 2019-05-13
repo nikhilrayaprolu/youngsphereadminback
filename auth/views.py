@@ -20,7 +20,10 @@ def login_redirect(request):
         data = {"client_id": settings.LMS_CLIENT_ID, "client_secret": settings.LMS_CLIENT_SECRET,
                  "username": request.data['username'], "password": request.data['password'], "token_type": "JWT", "grant_type":"password"}
         login_reply = requests.post(login_url, data=(data))
-        return Response(login_reply.json(), status=status.HTTP_201_CREATED)
+        if login_reply.ok:
+            return Response(login_reply.json(), status=login_reply.status_code)
+        else:
+            return Response(login_reply.json(), status=login_reply.status_code)
 
 @api_view(['POST'])
 def register_redirect(request):
@@ -35,7 +38,7 @@ def register_redirect(request):
         print(json.dumps(data))
         r = requests.post(url, data=json.dumps(data), headers=headers)
         if r.ok:
-            login_url = 'http://localhost:18000/oauth2/access_token/'
+            login_url = settings.LMS_URL + '/oauth2/access_token/'
             data = {"client_id": settings.LMS_CLIENT_ID, "client_secret": settings.LMS_CLIENT_SECRET,
                     "username": request.data['username'], "password": request.data['password'], "token_type": "JWT",
                     "grant_type": "password"}
@@ -59,4 +62,5 @@ def register_site(request):
         if r.ok:
             return Response(r.json(), status=status.HTTP_201_CREATED)
         else:
-            return Response(r.json(), status=r.status_code)
+            print(r)
+            return Response(r, status=r.status_code)

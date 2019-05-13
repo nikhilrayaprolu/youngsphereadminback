@@ -38,6 +38,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+'wagtail.wagtailforms',
+'wagtail.wagtailredirects',
+'wagtail.wagtailembeds',
+'wagtail.wagtailsites',
+'wagtail.wagtailusers',
+'wagtail.wagtailsnippets',
+'wagtail.wagtaildocs',
+'wagtail.wagtailimages',
+'wagtail.wagtailsearch',
+'wagtail.wagtailadmin',
+'wagtail.wagtailcore',
+
+'modelcluster',
+'taggit',
+'puput',
+    'wagtail.contrib.wagtailsitemaps',
+    'wagtail.contrib.wagtailroutablepage',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +66,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+'wagtail.wagtailcore.middleware.SiteMiddleware',
+'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
@@ -128,10 +147,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-LMS_URL = 'http://youngspere.com'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+PUPUT_AS_PLUGIN = True
+WAGTAIL_SITE_NAME = 'My Example Site'
+LMS_URL = 'http://13.127.168.121'
 LMS_CLIENT_ID = '3186b101a338f7a985fe'
 LMS_CLIENT_SECRET = 'c56bf390a42c0f163081a70690a7fba8b24e15d6'
 LMS_TOKEN = 'fe8df44d58eb9e5a757fd92e10c0e0de05c8ea67'
-
+DEV_TUTOR_LMS_TOKEN = '66acc8104db3035422c365fe6e6e3c5d4d34af09'
+SERVER_LMS_TOKEN = 'd455c709ee054dac6e94437f23196c3e7dbded5d'
+LMS_TOKEN = SERVER_LMS_TOKEN
 
